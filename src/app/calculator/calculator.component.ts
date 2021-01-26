@@ -14,22 +14,19 @@ export class CalculatorComponent implements OnInit {
   monthlyAmount: number = 0;
   numberOfMonth: number = 0;
   currentDate: string = '';
+  title1:string = '';
+  title2:string = '';
   calculateForm = new FormGroup({
     totalAmount: new FormControl(''),
     finishDate: new FormControl('')
   })
   startMonth: number = new Date().getMonth();
-  currentMonth = this.startMonth;
-  startYear = new Date().getFullYear();
-  currentYear = this.startYear;
-  monthList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  currentMonth: number = this.startMonth;
+  startYear: number = new Date().getFullYear();
+  currentYear: number = this.startYear;
+  monthList: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   ngOnInit(): void {
-  
-    // console.log("current month is", currentDate);
-    console.log();
-    
     this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
-  
   }
   calculate(): void {
     this.numberOfMonth = (this.currentYear - this.startYear) + (this.currentMonth - this.startMonth);
@@ -38,9 +35,9 @@ export class CalculatorComponent implements OnInit {
     console.log(this.monthlyAmount, "monthly");
   }
 
-  nextMonth():void {
+  nextMonth(): void {
     console.log("next month");
-    if (this.currentMonth === 11){
+    if (this.currentMonth === 11) {
       this.currentMonth = 0;  
       this.currentYear++;
     } else {
@@ -50,7 +47,7 @@ export class CalculatorComponent implements OnInit {
     console.log()
   }
 
-  prevMonth():void {
+  prevMonth(): void {
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.currentYear--;
@@ -59,5 +56,9 @@ export class CalculatorComponent implements OnInit {
     }
     this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
     console.log("prev month");
+  }
+  onToggled(onToggle: boolean){
+    this.onToggle = onToggle;
+    console.log('calc after toggle', this.onToggle, onToggle);
   }
 }

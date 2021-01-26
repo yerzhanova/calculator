@@ -1,8 +1,8 @@
 <form [formGroup]="calculateForm" >
     <h3>Saving calculator</h3>
-    <app-toggle class="toggle"></app-toggle>
+    <app-toggle [onToggle]="onToggle" class="toggle" (toggled)="onToggled($event)"></app-toggle>
     <div class="input-container">
-        <label>Total Amount:</label>
+        <label>{{title1}}</label>
         <div>
             <button class="leftButton">$</button>
             <input type="text" formControlName="totalAmount" placeholder="total amount">
@@ -10,7 +10,7 @@
     </div>
    
     <div class="input-container">
-        <label>Reach goal by:</label>
+        <label>{{title2}}</label>
         <div>
             <button class="leftButton" (click)="prevMonth()"><</button>
             <input type="" formControlName="finishDate" [(ngModel)] = "currentDate">
@@ -21,7 +21,7 @@
     <div class="result-container">
         <div class="result">
             <p>Monthly amount</p>
-            <p class="amount">${{monthlyAmount}}</p>
+            <p class="amount">${{monthlyAmount | number}}</p>
         </div>
         <div class="message">
             <p>You are planning <span>{{numberOfMonth}} monthly</span> deposits to reach your <span>${{calculateForm.value.totalAmount}}</span> goal by <span>{{monthList[currentMonth] + ', '+ currentYear}}</span></p>
