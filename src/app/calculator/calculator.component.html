@@ -1,0 +1,33 @@
+<form [formGroup]="calculateForm" >
+    <h3>Saving calculator</h3>
+    <app-toggle class="toggle"></app-toggle>
+    <div class="input-container">
+        <label>Total Amount:</label>
+        <div>
+            <button class="leftButton">$</button>
+            <input type="text" formControlName="totalAmount" placeholder="total amount">
+        </div>
+    </div>
+   
+    <div class="input-container">
+        <label>Reach goal by:</label>
+        <div>
+            <button class="leftButton" (click)="prevMonth()"><</button>
+            <input type="" formControlName="finishDate" [(ngModel)] = "currentDate">
+            <button class="rightButton" (click)="nextMonth()">></button>
+        </div>
+    </div>
+    
+    <div class="result-container">
+        <div class="result">
+            <p>Monthly amount</p>
+            <p class="amount">${{monthlyAmount}}</p>
+        </div>
+        <div class="message">
+            <p>You are planning <span>{{numberOfMonth}} monthly</span> deposits to reach your <span>${{calculateForm.value.totalAmount}}</span> goal by <span>{{monthList[currentMonth] + ', '+ currentYear}}</span></p>
+        </div>
+    </div> 
+    <div class="input-container">
+        <button [disabled]="!calculateForm.valid" (click)="calculate()">Finish</button>
+    </div>
+</form>

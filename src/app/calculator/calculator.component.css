@@ -1,0 +1,162 @@
+form {
+  position: absolute;
+  width: 400px;
+  height: 606px;
+  left: 377px;
+  top: 82px;
+  background: #FFFEFE;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+h3 {
+  margin: 45px 45px 0px 45px;
+  width: 124px;
+  font-family: Rambla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 37px;
+}
+div {
+  margin-top: 10px;
+}
+input {
+  width: 260px;
+  height: 42px;
+  border: 1px solid #CFCFCF;
+  border-radius: 4px;
+}
+.input-container {
+  top: 20px;
+  font-family: Rambla;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 45px;
+  margin-right: 45px;
+}
+
+.input-container:focus {
+  border: 1px solid #39c; /* Рамка при получении фокуса */
+ }
+
+.result-container {
+  width: 306px;
+  height: 146px;
+  margin-left: 45px;
+  margin-right: 45px;
+  border: 1px solid #CFCFCF;
+  box-sizing: border-box;
+  filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.03));
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.icon { 
+  background: #F4F8FA; 
+  border-radius: 4px 0px 0px 4px;
+  top: 2px;
+  left: 1px;
+  font-family: Rambla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  width: 42px;
+  height: 42px;
+  color: #828282;
+  text-align: center;
+  margin-right: -42px;
+  position: relative;
+  z-index: 1;
+  float: left;
+} 
+i + input {
+  padding-left: 42px;
+}
+
+.leftButton{
+  background: #F4F8FA; 
+  border-radius: 4px 0px 0px 4px;
+  top: 2px;
+  left: 1px;
+  font-family: Rambla;
+  font-style: normal;
+  font-weight: normal;
+  width: 42px;
+  height: 42px;
+  color: #828282;
+  text-align: center;
+  margin-right: -42px;
+  position: relative;
+  z-index: 1;
+  float: left;
+}
+
+.rightButton {
+  background: #F4F8FA; 
+  border-radius: 4px 0px 0px 4px;
+  top: 2px;
+  right: 5px;
+  font-family: Rambla;
+  font-style: normal;
+  font-weight: normal;
+  width: 42px;
+  height: 42px;
+  color: #828282;
+  text-align: center;
+  margin-left: -42px;
+  position: relative;
+  z-index: 1;
+  float: right;
+}
+
+.leftButton + input {
+  padding-left: 42px;
+}
+
+.rightButton + input {
+  padding-right: 42px;
+}
+
+button {
+  color: white;
+  font-size: 16px; 
+  width: 308px;
+  height: 42px;
+  /* Blue 1 */
+  background: #2F80ED;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+span {
+  font-weight: bold;
+}
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
+.result {
+  display: flex;
+  justify-content: space-between;
+}
+.amount {
+  color: #2F80ED;
+  font-family: Rambla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.message {
+  font-family: Rambla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 14px;
+  background: #F4F8FA;
+}
+.toggle {
+  margin-left: 45px;
+}
