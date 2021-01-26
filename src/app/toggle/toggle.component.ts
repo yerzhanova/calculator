@@ -14,11 +14,10 @@ export class ToggleComponent implements OnInit {
   constructor() { }
  
   ngOnInit(): void {
-    console.log('toggle', this.onToggle);
+   
   }
   toggle(): void {
     this.onToggle = !this.onToggle;
     this.toggleEmitter.emit(this.onToggle);
-    console.log(this.onToggle, "onToggle comp");
   }
 }
