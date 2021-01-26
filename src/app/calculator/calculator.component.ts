@@ -17,6 +17,7 @@ export class CalculatorComponent implements OnInit {
   title1:string = '';
   title2:string = '';
   message: string = '';
+  amountType = 'Total';
   calculateForm = new FormGroup({
     totalAmount: new FormControl('25000'),
     finishDate: new FormControl('')
@@ -71,6 +72,7 @@ export class CalculatorComponent implements OnInit {
     this.onToggle = onToggle;
     this.title1 = this.onToggle?'Total amount':'Monthly amount';
     this.title2 = this.onToggle?'Reach goal by':'Save until';
+    this.amountType = this.onToggle?'Total':'Monthly';
     if (this.onToggle) {
       this.monthlyAmount = this.numberOfMonth>0?this.calculateForm.value.totalAmount/this.numberOfMonth:0;
       console.log(this.monthlyAmount, "monthly");
