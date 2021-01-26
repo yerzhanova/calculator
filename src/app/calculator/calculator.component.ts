@@ -16,8 +16,9 @@ export class CalculatorComponent implements OnInit {
   currentDate: string = '';
   title1:string = '';
   title2:string = '';
+  message: string = '';
   calculateForm = new FormGroup({
-    totalAmount: new FormControl(''),
+    totalAmount: new FormControl('25000'),
     finishDate: new FormControl('')
   })
   startMonth: number = new Date().getMonth();
@@ -27,12 +28,20 @@ export class CalculatorComponent implements OnInit {
   monthList: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   ngOnInit(): void {
     this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
+    this.monthlyAmount = this.calculateForm.value.totalAmount;
+    this.title1 = this.onToggle?'Total amount':'Monthly amount';
+    this.title2 = this.onToggle?'Reach goal by':'Save until';
+    this.message = `You are planning ${this.numberOfMonth} monthly deposits to reach your ${this.calculateForm.value.totalAmount} goal by ${this.monthList[this.currentMonth]}, ${this.currentYear}`;
   }
   calculate(): void {
     this.numberOfMonth = (this.currentYear - this.startYear) + (this.currentMonth - this.startMonth);
-    console.log(this.numberOfMonth, "n of month");
-    this.monthlyAmount = this.numberOfMonth>0?this.calculateForm.value.totalAmount/this.numberOfMonth:0;
-    console.log(this.monthlyAmount, "monthly");
+    if (this.onToggle) {
+      this.monthlyAmount = this.numberOfMonth>0?this.calculateForm.value.totalAmount/this.numberOfMonth:0;
+    } else {
+      this.monthlyAmount = this.calculateForm.value.totalAmount * this.numberOfMonth;
+    }
+    this.message = this.onToggle?`You are planning ${this.numberOfMonth} monthly deposits to reach your ${this.calculateForm.value.totalAmount}
+    goal by ${this.monthList[this.currentMonth]} ${this.currentYear}`: `You are saving ${this.monthlyAmount} monthly to save $${this.calculateForm.value.totalAmount} by ${this.monthList[this.currentMonth]} ${this.currentYear}`;
   }
 
   nextMonth(): void {
@@ -48,6 +57,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   prevMonth(): void {
+    console.log("prev month");
     if (this.currentMonth === 0) {
       this.currentMonth = 11;
       this.currentYear--;
@@ -55,10 +65,19 @@ export class CalculatorComponent implements OnInit {
       this.currentMonth--;
     }
     this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
-    console.log("prev month");
   }
+  
   onToggled(onToggle: boolean){
     this.onToggle = onToggle;
-    console.log('calc after toggle', this.onToggle, onToggle);
+    this.title1 = this.onToggle?'Total amount':'Monthly amount';
+    this.title2 = this.onToggle?'Reach goal by':'Save until';
+    if (this.onToggle) {
+      this.monthlyAmount = this.numberOfMonth>0?this.calculateForm.value.totalAmount/this.numberOfMonth:0;
+      console.log(this.monthlyAmount, "monthly");
+    } else {
+      this.monthlyAmount = this.calculateForm.value.totalAmount * this.numberOfMonth;
+    }
+    this.message = this.onToggle?`You are planning ${this.numberOfMonth} monthly deposits to reach your ${this.calculateForm.value.totalAmount}
+      goal by ${this.monthList[this.currentMonth]} ${this.currentYear}`: `You are saving ${this.monthlyAmount} monthly to save $${this.calculateForm.value.totalAmount} by ${this.monthList[this.currentMonth]} ${this.currentYear}`;
   }
 }

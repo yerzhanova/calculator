@@ -48,7 +48,6 @@ input {
   box-sizing: border-box;
   filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.03));
   border-radius: 4px;
-  padding: 20px;
 }
 
 .icon { 
@@ -139,6 +138,7 @@ button:focus {
 .result {
   display: flex;
   justify-content: space-between;
+  padding: 0 20px 20px 20px;
 }
 .amount {
   color: #2F80ED;
@@ -156,6 +156,9 @@ button:focus {
   font-size: 10px;
   line-height: 14px;
   background: #F4F8FA;
+  padding: 0 20px;
+  margin: 0;
+  bottom: -20px;
 }
 .toggle {
   margin-left: 45px;
