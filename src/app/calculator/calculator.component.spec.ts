@@ -28,6 +28,13 @@ describe('CalculatorComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(CalculatorComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('h3').textContent).toContain('Saving calculator');
+  });
+
   it('should be increment month', () => {
     const initialMonthValue = component.currentMonth;
     const initialYearValue = component.currentYear;
