@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToggleComponent } from '../toggle/toggle.component';
 
 import { CalculatorComponent } from './calculator.component';
 
@@ -8,7 +9,7 @@ describe('CalculatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalculatorComponent ]
+      declarations: [ CalculatorComponent, ToggleComponent ]
     })
     .compileComponents();
   });

@@ -22,4 +22,10 @@ describe('ToggleComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should toggle', () => {
+    expect(component.onToggle).toBeFalsy();
+    component.toggle();
+    expect(component.onToggle).toBeTruthy();
+  });
 });
