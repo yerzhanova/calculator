@@ -163,3 +163,9 @@ button:focus {
   font-family: "Rambla";
   src: url('/assets/fonts/rambla/Rambla-Regular.ttf') format("truetype");
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

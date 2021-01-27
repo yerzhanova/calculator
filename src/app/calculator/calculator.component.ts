@@ -1,5 +1,6 @@
 import { ConditionalExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ToggleComponent } from '../toggle/toggle.component';
 
@@ -20,7 +21,7 @@ export class CalculatorComponent implements OnInit {
   message: string = '';
   amountType = 'Total';
   calculateForm = new FormGroup({
-    totalAmount: new FormControl('25000'),
+    totalAmount: new FormControl('25000', [Validators.required, Validators.min(0)]),
     finishDate: new FormControl('')
   })
   startMonth: number = new Date().getMonth();
@@ -28,6 +29,7 @@ export class CalculatorComponent implements OnInit {
   startYear: number = new Date().getFullYear();
   currentYear: number = this.startYear;
   monthList: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  
   ngOnInit(): void {
     this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
     this.monthlyAmount = this.calculateForm.value.totalAmount;
@@ -35,6 +37,7 @@ export class CalculatorComponent implements OnInit {
     this.title2 = this.onToggle?'Reach goal by':'Save until';
     this.message = `You are planning ${this.numberOfMonth} monthly deposits to reach your ${this.calculateForm.value.totalAmount} goal by ${this.monthList[this.currentMonth]}, ${this.currentYear}`;
   }
+
   calculate(): void {
     this.numberOfMonth = (this.currentYear - this.startYear) + (this.currentMonth - this.startMonth);
     if (this.onToggle) {
