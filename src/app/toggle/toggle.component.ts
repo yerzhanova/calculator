@@ -17,6 +17,7 @@ export class ToggleComponent implements OnInit {
   ngOnInit(): void {
    
   }
+  
   toggle(): void {
     this.onToggle = !this.onToggle;
     this.toggleEmitter.emit(this.onToggle);
