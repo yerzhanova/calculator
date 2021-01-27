@@ -56,3 +56,10 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+  }

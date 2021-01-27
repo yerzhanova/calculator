@@ -11,6 +11,7 @@ export class ToggleComponent implements OnInit {
 
   @Output('toggled')
   toggleEmitter = new EventEmitter<boolean>();
+  title: string = this.onToggle?"Calculate by total amount": "Calculate by monthly saving";
   constructor() { }
  
   ngOnInit(): void {
@@ -20,5 +21,6 @@ export class ToggleComponent implements OnInit {
     this.onToggle = !this.onToggle;
     this.toggleEmitter.emit(this.onToggle);
     console.log(this.onToggle);
+    this.title = this.onToggle?"Calculate by total amount": "Calculate by monthly saving";
   }
 }
