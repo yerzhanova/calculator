@@ -56,4 +56,14 @@ describe('CalculatorComponent', () => {
     expect(initialMonthValue).toBeLessThanOrEqual(newMonthValue);
     expect(newYearValue).toBeLessThanOrEqual(initialYearValue);
   })
+
+
+  it('should not be the last period', () => {
+    const initialMonthValue = component.currentMonth;
+    const initialYearValue = component.currentYear;
+    let buttonElement = fixture.debugElement.query(By.css('.leftButton'));
+    buttonElement.triggerEventHandler('click', null);
+    expect(component.currentMonth).toBeGreaterThanOrEqual(initialMonthValue);
+    expect(component.currentYear).toBeGreaterThanOrEqual(initialYearValue);
+  })
 });

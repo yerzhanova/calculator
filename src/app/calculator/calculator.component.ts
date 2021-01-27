@@ -1,6 +1,7 @@
 import { ConditionalExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToggleComponent } from '../toggle/toggle.component';
 
 @Component({
   selector: 'app-calculator',
@@ -58,14 +59,16 @@ export class CalculatorComponent implements OnInit {
   }
 
   prevMonth(): void {
-    console.log("prev month");
-    if (this.currentMonth === 0) {
-      this.currentMonth = 11;
-      this.currentYear--;
-    } else {
-      this.currentMonth--;
+    console.log("prev month", this.currentYear, this.startYear);
+    if (this.currentMonth >= this.startMonth && this.currentYear >= this.startYear){
+      if (this.currentMonth === 0) {
+        this.currentMonth = 11;
+        this.currentYear--;
+      } else {
+        this.currentMonth--;
+      }
+      this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
     }
-    this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
   }
   
   onToggled(onToggle: boolean){
