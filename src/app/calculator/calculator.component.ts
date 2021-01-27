@@ -82,4 +82,8 @@ export class CalculatorComponent implements OnInit {
     this.message = this.onToggle?`You are planning ${this.numberOfMonth} monthly deposits to reach your ${this.calculateForm.value.totalAmount}
       goal by ${this.monthList[this.currentMonth]} ${this.currentYear}`: `You are saving ${this.monthlyAmount} monthly to save $${this.calculateForm.value.totalAmount} by ${this.monthList[this.currentMonth]} ${this.currentYear}`;
   }
+
+  isLessDate():boolean {
+    return this.startMonth === this.currentMonth && this.startYear === this.currentYear;
+  }
 }

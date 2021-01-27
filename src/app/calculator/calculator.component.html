@@ -5,15 +5,15 @@
         <label>{{title1}}</label>
         <div>
             <button class="leftButton">$</button>
-            <input type="text" formControlName="totalAmount" placeholder="total amount">
+            <input type="text" formControlName="totalAmount" placeholder="total amount" required>
         </div>
     </div>
    
     <div class="input-container">
         <label>{{title2}}</label>
         <div>
-            <button class="leftButton" (click)="prevMonth()"><</button>
-            <input type="" formControlName="finishDate" [(ngModel)] = "currentDate">
+            <button class="leftButton" (click)="prevMonth()" [disabled]="isLessDate()"><</button>
+            <input type="" formControlName="finishDate" [(ngModel)] = "currentDate" required>
             <button class="rightButton" (click)="nextMonth()">></button>
         </div>
     </div>
