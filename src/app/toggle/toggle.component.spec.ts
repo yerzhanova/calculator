@@ -24,8 +24,8 @@ describe('ToggleComponent', () => {
   });
 
   it('should toggle', () => {
-    expect(component.onToggle).toBeFalsy();
+    expect(component.onToggle).toBe(true);
     component.toggle();
-    expect(component.onToggle).toBeTruthy();
+    expect(component.onToggle).toBe(false);
   });
 });

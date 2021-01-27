@@ -164,3 +164,9 @@ button:focus {
 .toggle {
   margin-left: 45px;
 }
+
+@font-face {
+  font-family: Rambla;
+  src: url("/assets/font/rambla/rambla-regular.ttf") format("truetype");
+  /* font-weight: bold; */
+}
