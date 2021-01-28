@@ -1,5 +1,5 @@
 form {
-  position: absolute;
+  margin: 0 auto;
   width: 400px;
   height: 606px;
   left: 377px;
@@ -24,6 +24,10 @@ div {
 
 .field {
   margin: 0;
+}
+
+.title {
+  margin-top: 45px;
 }
 
 input {
