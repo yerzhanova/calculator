@@ -5,7 +5,10 @@
         <label>{{title1}}</label>
         <div>
             <button class="leftButton">$</button>
-            <input type="number" formControlName="totalAmount" placeholder="total amount">
+            <input type="number" name="totalAmount" formControlName="totalAmount" placeholder="total amount">
+            <div *ngIf="">
+                Total amount is required.
+            </div>
         </div>
     </div>
    

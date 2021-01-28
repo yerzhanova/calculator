@@ -39,7 +39,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   calculate(): void {
-    this.numberOfMonth = (this.currentYear - this.startYear) + (this.currentMonth - this.startMonth);
+    this.numberOfMonth = (this.currentYear - this.startYear) + (this.currentMonth - this.startMonth) + 1;
     if (this.onToggle) {
       this.monthlyAmount = this.numberOfMonth>0?this.calculateForm.value.totalAmount/this.numberOfMonth:0;
     } else {
