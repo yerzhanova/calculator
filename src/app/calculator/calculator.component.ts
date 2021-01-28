@@ -19,7 +19,7 @@ export class CalculatorComponent implements OnInit {
   title1:string = '';
   title2:string = '';
   message: string = '';
-  amountType = 'Total';
+  amountType: string = '';
   calculateForm = new FormGroup({
     totalAmount: new FormControl('25000', [Validators.required, Validators.min(0)]),
     finishDate: new FormControl('')
@@ -33,6 +33,7 @@ export class CalculatorComponent implements OnInit {
   ngOnInit(): void {
     this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
     this.monthlyAmount = this.calculateForm.value.totalAmount;
+    this.amountType = this.onToggle?'Total':'Monthly';
     this.title1 = this.onToggle?'Total amount':'Monthly amount';
     this.title2 = this.onToggle?'Reach goal by':'Save until';
     this.message = `You are planning ${this.numberOfMonth} monthly deposits to reach your ${this.calculateForm.value.totalAmount} goal by ${this.monthList[this.currentMonth]}, ${this.currentYear}`;
