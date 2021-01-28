@@ -18,9 +18,14 @@ h3 {
   line-height: 37px;
 }
 div {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 0px;
 }
+
+.field {
+  margin: 0;
+}
+
 input {
   width: 260px;
   height: 42px;
@@ -67,6 +72,7 @@ input {
   z-index: 1;
   float: left;
 } 
+
 i + input {
   padding-left: 42px;
 }
@@ -124,9 +130,7 @@ button {
   border-radius: 10px;
   font-weight: bold;
 }
-span {
-  font-weight: bold;
-}
+
 button, 
 button:active, 
 button:focus {
@@ -156,6 +160,7 @@ button:focus {
   bottom: -20px;
 }
 .toggle {
+  top: 45px;
   margin-left: 45px;
 }
 

@@ -1,9 +1,11 @@
 <form [formGroup]="calculateForm" >
     <h3>Saving calculator</h3>
-    <app-toggle [onToggle]="onToggle" class="toggle" (toggled)="onToggled($event)"></app-toggle>
+    <div>
+        <app-toggle [onToggle]="onToggle" class="toggle" (toggled)="onToggled($event)"></app-toggle>
+    </div>
     <div class="input-container">
         <label>{{title1}}</label>
-        <div>
+        <div class="field">
             <button class="leftButton">$</button>
             <input type="number" name="totalAmount" formControlName="totalAmount" placeholder="total amount">
             <div *ngIf="">
@@ -14,7 +16,7 @@
    
     <div class="input-container">
         <label>{{title2}}</label>
-        <div>
+        <div class="field">
             <button class="leftButton" (click)="prevMonth()" [disabled]="isLessDate()"><</button>
             <input class="finishDate" type="text" formControlName="finishDate" [(ngModel)] = "currentDate">
             <button class="rightButton" (click)="nextMonth()">></button>
