@@ -54,7 +54,6 @@ export class CalculatorComponent implements OnInit {
   }
 
   nextMonth(): void {
-    console.log("next month");
     if (this.currentMonth === 11) {
       this.currentMonth = 0;  
       this.currentYear++;
@@ -62,11 +61,9 @@ export class CalculatorComponent implements OnInit {
       this.currentMonth++;
     }
     this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
-    console.log()
   }
 
   prevMonth(): void {
-    console.log("prev month", this.currentYear, this.startYear);
     if (this.currentMonth >= this.startMonth && this.currentYear >= this.startYear){
       if (this.currentMonth === 0) {
         this.currentMonth = 11;
