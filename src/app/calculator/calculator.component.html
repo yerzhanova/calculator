@@ -1,5 +1,5 @@
 <form [formGroup]="calculateForm" >
-    <h3>Saving calculator</h3>
+    <h3 class="title">Saving calculator</h3>
     <div>
         <app-toggle [onToggle]="onToggle" class="toggle" (toggled)="onToggled($event)"></app-toggle>
     </div>
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-   
+
     <div class="input-container">
         <label>{{title2}}</label>
         <div class="field">
@@ -26,13 +26,13 @@
     <div class="result-container">
         <div class="result">
             <p>{{amountType}} amount</p>
-            <p class="amount">${{monthlyAmount |  number:'1.0-2'}}</p>
+            <p class="amount">${{resultAmount |  number:'1.0-2'}}</p>
         </div>
         <div class="message">
             <p>{{message}}</p>
         </div>
     </div> 
     <div class="input-container">
-        <button [disabled]="!calculateForm.valid" class="button" (click)="calculate()">Finish</button>
+        <button [disabled]="!calculateForm.valid" class="button" (click)="calculate(calculateForm.value.totalAmount, currentDate)">Finish</button>
     </div>
 </form>
