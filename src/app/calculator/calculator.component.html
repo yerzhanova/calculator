@@ -18,7 +18,7 @@
         <label>{{title2}}</label>
         <div class="field">
             <button class="leftButton" (click)="prevMonth()" [disabled]="isLessDate()"><</button>
-            <input class="finishDate" type="text" formControlName="finishDate" [(ngModel)] = "currentDate">
+            <input class="finishDate" readonly type="text" formControlName="finishDate" [(ngModel)] = "currentDate">
             <button class="rightButton" (click)="nextMonth()">></button>
         </div>
     </div>
