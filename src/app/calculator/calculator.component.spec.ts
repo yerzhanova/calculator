@@ -67,14 +67,10 @@ describe('CalculatorComponent', () => {
     expect(component.currentYear).toBeGreaterThanOrEqual(initialYearValue);
   })
 
-  it('should be right calculated', () => {
-    const fixture = TestBed.createComponent(CalculatorComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  it('should be right calculated by total amount', () => {
     const date:string = 'February, 2023';
     const inputValue:number = 25000;
     component.calculate(inputValue, date);
-    fixture.detectChanges();
     expect(component.onToggle).toBe(true);
     expect(component.currentMonth).toEqual(1);
     expect(component.currentYear).toEqual(2023);
@@ -82,4 +78,14 @@ describe('CalculatorComponent', () => {
     expect(component.resultAmount).toBeGreaterThan(961.53);
     expect(component.resultAmount).toBeLessThan(961.54);
   })
+
+  it('should be zero if totalAmount zero', () => {
+    const inputValue:number = 0;
+    component.calculate(inputValue, component.currentDate);
+    expect(component.resultAmount).toEqual(0);
+    component.onToggled(!component.onToggle);
+    component.calculate(inputValue, component.currentDate);
+    expect(component.resultAmount).toEqual(0);
+  })
+
 });
