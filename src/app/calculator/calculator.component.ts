@@ -40,7 +40,9 @@ export class CalculatorComponent implements OnInit {
   }
 
   calculate(amount:number, finishDate: string): void {
-    console.log(finishDate, "finishDate");
+    this.currentMonth = this.monthList.indexOf(finishDate.split(',')[0]);
+    this.currentYear = parseInt(finishDate.slice(-4));
+
     this.numberOfMonth = (this.currentYear - this.startYear) * 12 + (this.currentMonth - this.startMonth) + 1;
     if (this.onToggle) {
       this.resultAmount = this.numberOfMonth>0?amount/this.numberOfMonth:0;
