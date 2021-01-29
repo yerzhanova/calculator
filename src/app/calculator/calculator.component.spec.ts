@@ -57,7 +57,6 @@ describe('CalculatorComponent', () => {
     expect(newYearValue).toBeLessThanOrEqual(initialYearValue);
   })
 
-
   it('should not be the last period', () => {
     const initialMonthValue = component.currentMonth;
     const initialYearValue = component.currentYear;
@@ -77,6 +76,18 @@ describe('CalculatorComponent', () => {
     expect(component.numberOfMonth).toEqual(26);
     expect(component.resultAmount).toBeGreaterThan(961.53);
     expect(component.resultAmount).toBeLessThan(961.54);
+  })
+
+  it('should be right calculated by monthly amount', () => {
+    const date:string = 'February, 2023';
+    const inputValue:number = 25000;
+    component.onToggle = !component.onToggle;
+    component.calculate(inputValue, date);
+    expect(component.onToggle).toBe(false);
+    expect(component.currentMonth).toEqual(1);
+    expect(component.currentYear).toEqual(2023);
+    expect(component.numberOfMonth).toEqual(26);
+    expect(component.resultAmount).toEqual(650000);
   })
 
   it('should be zero if totalAmount zero', () => {
