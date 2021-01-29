@@ -22,6 +22,11 @@ div {
   margin-bottom: 0px;
 }
 
+label {
+  font-size: 14px;
+  line-height: 17px;
+}
+
 .field {
   margin: 0;
 }
@@ -35,6 +40,10 @@ input {
   height: 42px;
   border: 1px solid #CFCFCF;
   border-radius: 4px;
+  font-family: Rambla;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
 }
 .input-container {
   top: 20px;
@@ -42,6 +51,7 @@ input {
   font-weight: normal;
   margin-left: 45px;
   margin-right: 45px;
+
 }
 
 .input-container:focus {
@@ -57,6 +67,8 @@ input {
   box-sizing: border-box;
   filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.03));
   border-radius: 4px;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .icon { 
@@ -143,7 +155,8 @@ button:focus {
 .result {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px 20px 20px;
+  /* padding: 0 20px 20px 20px; */
+  margin: 20px;
 }
 .amount {
   color: #2F80ED;
