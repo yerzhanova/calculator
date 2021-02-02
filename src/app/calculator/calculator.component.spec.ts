@@ -73,9 +73,9 @@ describe('CalculatorComponent', () => {
     expect(component.onToggle).toBe(true);
     expect(component.currentMonth).toEqual(1);
     expect(component.currentYear).toEqual(2023);
-    expect(component.numberOfMonth).toEqual(26);
-    expect(component.resultAmount).toBeGreaterThan(961.53);
-    expect(component.resultAmount).toBeLessThan(961.54);
+    expect(component.numberOfMonth).toEqual(25);
+    expect(component.resultAmount).toEqual(1000);
+    // expect(component.resultAmount).toBeLessThan(961.54);
   })
 
   it('should be right calculated by monthly amount', () => {
@@ -86,8 +86,8 @@ describe('CalculatorComponent', () => {
     expect(component.onToggle).toBe(false);
     expect(component.currentMonth).toEqual(1);
     expect(component.currentYear).toEqual(2023);
-    expect(component.numberOfMonth).toEqual(26);
-    expect(component.resultAmount).toEqual(650000);
+    expect(component.numberOfMonth).toEqual(25);
+    expect(component.resultAmount).toEqual(625000);
   })
 
   it('should be zero if totalAmount zero', () => {
@@ -99,4 +99,7 @@ describe('CalculatorComponent', () => {
     expect(component.resultAmount).toEqual(0);
   })
 
+  it('should be total messages if toggle is true', () => {
+    expect(component.title1).toBe('Total amount');
+  })
 });

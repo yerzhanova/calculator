@@ -26,6 +26,8 @@ describe('ToggleComponent', () => {
   it('should toggle', () => {
     expect(component.onToggle).toBe(true);
     component.toggle();
-    expect(component.onToggle).toBe(false);
+    expect(component.onToggle).toBe(false, 'off after click');
+    component.toggle();
+    expect(component.onToggle).toBe(true, 'on after second click');
   });
 });
