@@ -35,6 +35,7 @@ export class CalculatorComponent implements OnInit {
     this.amountType = this.onToggle?'Total':'Monthly';
     this.title1 = this.onToggle?'Total amount':'Monthly amount';
     this.title2 = this.onToggle?'Reach goal by':'Save until';
+    this.numberOfMonth = (this.currentYear - this.startYear) * 12 + (this.currentMonth - this.startMonth) + 1;
   }
 
   calculate(amount:number, finishDate: string): void {
