@@ -18,7 +18,6 @@ export class CalculatorComponent implements OnInit {
   currentDate: string = '';
   title1:string = '';
   title2:string = '';
-  message: string = '';
   amountType: string = '';
   calculateForm = new FormGroup({
     totalAmount: new FormControl('25000', [Validators.required, Validators.min(0)]),
@@ -36,7 +35,6 @@ export class CalculatorComponent implements OnInit {
     this.amountType = this.onToggle?'Total':'Monthly';
     this.title1 = this.onToggle?'Total amount':'Monthly amount';
     this.title2 = this.onToggle?'Reach goal by':'Save until';
-    this.message = `You are planning ${this.numberOfMonth} monthly deposits to reach your ${this.calculateForm.value.totalAmount} goal by ${this.monthList[this.currentMonth]}, ${this.currentYear}`;
   }
 
   calculate(amount:number, finishDate: string): void {
@@ -49,8 +47,6 @@ export class CalculatorComponent implements OnInit {
     } else {
       this.resultAmount = amount * this.numberOfMonth;
     }
-    this.message = this.onToggle?`You are planning ${this.numberOfMonth} monthly deposits to reach your ${amount}
-    goal by ${this.monthList[this.currentMonth]} ${this.currentYear}`: `You are saving ${this.resultAmount} monthly to save $${amount} by ${this.monthList[this.currentMonth]} ${this.currentYear}`;
   }
 
   nextMonth(): void {

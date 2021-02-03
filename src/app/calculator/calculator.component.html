@@ -28,9 +28,14 @@
             <p>{{amountType}} amount</p>
             <p class="amount">${{resultAmount |  number:'1.0-2'}}</p>
         </div>
-        <div class="message">
-            <p>{{message}}</p>
+        <div class="message" *ngIf="onToggle; else elseBlock">
+            You are planning <span class="boldtext">{{numberOfMonth}} monthly </span>deposits to reach your <span class="boldtext">${{calculateForm.value.totalAmount | number}}</span> goal by <span class="boldtext">{{this.monthList[this.currentMonth]}} {{this.currentYear}}</span> 
         </div>
+        <ng-template #elseBlock>
+            <div class="message">
+                You are saving <span class="boldtext">${{calculateForm.value.totalAmount | number}} monthly </span>to save <span class="boldtext">${{resultAmount | number}}</span> by <span class="boldtext">{{this.monthList[this.currentMonth]}} {{this.currentYear}}</span> 
+            </div>
+        </ng-template>
     </div> 
     <div class="input-container">
         <button [disabled]="!calculateForm.valid" class="button" (click)="calculate(calculateForm.value.totalAmount, currentDate)">Finish</button>
