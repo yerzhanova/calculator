@@ -58,6 +58,7 @@ export class CalculatorComponent implements OnInit {
       this.currentMonth++;
     }
     this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
+    this.calculate(this.calculateForm.value.totalAmount, this.currentDate);
   }
 
   prevMonth(): void {
@@ -69,6 +70,7 @@ export class CalculatorComponent implements OnInit {
         this.currentMonth--;
       }
       this.currentDate = `${this.monthList[this.currentMonth]}, ${this.currentYear}`;
+      this.calculate(this.calculateForm.value.totalAmount, this.currentDate);
     }
   }
   
